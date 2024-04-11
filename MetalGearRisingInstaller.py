@@ -1,0 +1,221 @@
+from tkinter import *
+from tkinter import messagebox
+from threading import Thread
+from random import randint
+from screeninfo import get_monitors
+from time import sleep
+
+def get_screen_size():
+    for m in get_monitors():
+        return (int(m.height),int(m.width))
+
+#pop up
+def spam(message1,message2):
+    size=get_screen_size()
+    mibox = Tk()
+    topframe = Frame(mibox)
+    miLabel = Label(mibox, text=message1)
+    mibutton2 = Button(topframe, text=message2)
+    miLabel.pack()
+    mibutton2.pack()
+    topframe.pack()
+    width = len(message1)*15
+    x=randint(0,size[1]-width)
+    y=randint(0,size[0]-100)
+    mibox.geometry(str(width)+"x100+"+str(x)+"+"+str(y))
+    mibox.protocol("WM_DELETE_WINDOW")
+    mibox.mainloop()
+
+    #do something here
+
+        
+funny_messages = [
+    "Your PC is installing MetalGearRising...",
+    "Your PC is making toast...",
+    "Your PC is taking a coffee break...",
+    "Your PC is pondering the meaning of life...",
+    "Your PC is doing the Macarena...",
+    "Your PC is running on hamster power...",
+    "Your PC is pretending to be a potato...",
+    "Your PC is busy counting its bits...",
+    "Your PC is playing hide and seek...",
+    "Your PC is doing the robot dance...",
+    "Your PC is trying to reach enlightenment...",
+    "Your PC is reorganizing its desktop icons...",
+    "Your PC is practicing its karaoke skills...",
+    "Your PC is contemplating its existence...",
+    "Your PC is debating with itself...",
+    "Your PC is trying to find Waldo...",
+    "Your PC is on a coffee run...",
+    "Your PC is doing some light reading...",
+    "Your PC is running a marathon...",
+    "Your PC is playing hide and seek...",
+    "Your PC is rehearsing for a talent show...",
+    "Your PC is trying to understand humans...",
+    "Your PC is training for the Olympics...",
+    "Your PC is doing the hokey pokey...",
+    "Your PC is trying to break the internet...",
+    "Your PC is learning to juggle...",
+    "Your PC is practicing mindfulness...",
+    "Your PC is dreaming of electric sheep...",
+    "Your PC is in a meeting...",
+    "Your PC is at the spa...",
+    "Your PC is learning to cook...",
+    "Your PC is doing yoga...",
+    "Your PC is taking a selfie...",
+    "Your PC is learning to dance...",
+    "Your PC is on a vision quest...",
+    "Your PC is playing Minecraft...",
+    "Your PC is learning to speak Klingon...",
+    "Your PC is searching for Narnia...",
+    "Your PC is doing a crossword puzzle...",
+    "Your PC is learning to play the guitar...",
+    "Your PC is watching cat videos...",
+    "Your PC is taking a bubble bath...",
+    "Your PC is composing a symphony...",
+    "Your PC is writing a novel...",
+    "Your PC is trying to solve a Rubik's cube...",
+    "Your PC is playing hopscotch...",
+    "Your PC is looking for its car keys...",
+    "Your PC is learning to tap dance...",
+    "Your PC is doing a cartwheel...",
+    "Your PC is making a to-do list...",
+    "Your PC is playing with a slinky...",
+    "Your PC is trying to levitate...",
+    "Your PC is in a staring contest with the wall...",
+    "Your PC is trying to remember where it left its shoes...",
+    "Your PC is learning to speak whale...",
+    "Your PC is moonwalking...",
+    "Your PC is trying to find the meaning of life...",
+    "Your PC is doing a headstand...",
+    "Your PC is trying to high-five itself...",
+    "Your PC is making a snow angel...",
+    "Your PC is playing an air guitar solo...",
+    "Your PC is taking a virtual tour of the universe...",
+    "Your PC is practicing its stand-up comedy routine...",
+    "Your PC is learning to fly...",
+    "Your PC is trying to solve a mystery...",
+    "Your PC is having an existential crisis...",
+    "Your PC is learning to knit...",
+    "Your PC is doing a handstand...",
+    "Your PC is practicing its beatboxing skills...",
+    "Your PC is trying to find the end of the internet...",
+    "Your PC is learning to breakdance...",
+    "Your PC is playing hopscotch with itself...",
+    "Your PC is meditating...",
+    "Your PC is doing a crossword...",
+    "Your PC is practicing its magic tricks...",
+    "Your PC is playing chess with itself...",
+    "Your PC is learning to whistle...",
+    "Your PC is making a wish on a shooting star...",
+    "Your PC is having a tea party...",
+    "Your PC is doing a Sudoku...",
+    "Your PC is practicing its yodeling...",
+    "Your PC is doing a jig...",
+    "Your PC is trying to solve a riddle...",
+    "Your PC is learning to skateboard...",
+    "Your PC is having a dance-off with itself...",
+    "Your PC is learning to hula hoop...",
+    "Your PC is trying to find its glasses...",
+    "Your PC is doing a backflip...",
+    "Your PC is learning to tightrope walk...",
+    "Your PC is trying to find the lost city of Atlantis...",
+    "Your PC is having a thumb war with itself...",
+    "Your PC is trying to find the pot of gold at the end of the rainbow...",
+    "Your PC is doing a magic trick...",
+    "Your PC is learning to whistle while it works...",
+    "Your PC is trying to find its way out of a maze...",
+    "Your PC is learning to belly dance...",
+    "Your PC is trying to solve a mystery...",
+    "Your PC is doing a jigsaw puzzle...",
+    "Your PC is learning to do the moonwalk...",
+    "Your PC is trying to find the treasure chest...",
+    "Your PC is learning to play the harmonica...",
+    "Your PC is trying to find the Loch Ness Monster...",
+    "Your PC is doing a magic show...",
+    "Your PC is learning to juggle with fire...",
+    "Your PC is trying to find the fountain of youth...",
+    "Your PC is doing a hand puppet show...",
+    "Your PC is learning to do a backflip...",
+    "Your PC is trying to find the philosopher's stone...",
+    "Your PC is learning to yodel...",
+    "Your PC is trying to find Bigfoot...",
+    "Your PC is doing a puppet show...",
+    "Your PC is learning to solve a Rubik's cube blindfolded...",
+    "Your PC is trying to find the Holy Grail...",
+    "Your PC is learning to solve a mystery...",
+    "Your PC is trying to find the lost city of El Dorado...",
+    "Your PC is doing a ventriloquist act...",
+    "Your PC is learning to do a cartwheel...",
+    "Your PC is trying to find the Bermuda Triangle...",
+    "Your PC is learning to solve a jigsaw puzzle...",
+    "Your PC is trying to find the fountain of knowledge...",
+    "Your PC is doing a shadow puppet show...",
+    "Your PC is learning to solve a Sudoku...",
+    "Your PC is trying to find the Garden of Eden...",
+    "Your PC is trying to find the Garden of Eden Creation Kit...",
+    "Your PC is learning to do a handstand...",
+    "Your PC is trying to find the philosopher's stone...",
+    "Your PC is doing a mime act...",
+    "Your PC is learning to do a headstand...",
+    "Your PC is trying to find the North Pole...",
+    "Your PC is learning to solve a crossword puzzle...",
+    "Your PC is trying to find the source of the Nile...",
+    "Your PC is doing a finger painting...",
+    "Your PC is learning to do a magic trick...",
+    "Your PC is trying to find the fountain of youth...",
+    "Your PC is doing a sandcastle contest...",
+    "Your PC is learning to do a backflip...",
+    "Your PC is trying to find the lost city of Atlantis...",
+    "Your PC is doing a magic show...",
+    "Your PC is learning to do a cartwheel..."
+]
+
+
+catchphrase_messages = [
+    "Oopsie daisy!",
+    "Well, that happened...",
+    "C'est la vie!",
+    "Better luck next time!",
+    "That's a swing and a miss!",
+    "Life's a mystery!",
+    "Que sera, sera!",
+    "Oh well, moving on!",
+    "It is what it is!",
+    "Not the end of the world!",
+    "Such is life!",
+    "What's done is done!",
+    "That's how the cookie crumbles!",
+    "Can't win 'em all!",
+    "On to the next one!",
+    "It's all part of the game!",
+    "That's how the ball bounces!",
+    "No harm, no foul!",
+    "One for the books!",
+    "That's the way the mop flops!",
+    "Shake it off!",
+    "It's just a flesh wound!",
+    "Not the end of the road!",
+    "That's just how the dice roll!",
+    "Life's a rollercoaster!",
+    "That's how the pendulum swings!",
+    "Not to worry!",
+    "Just keep swimming!",
+    "What's next on the agenda?",
+    "That's the spirit!",
+    "It's all in a day's work!",
+    "What's the next move?",
+    "That's the way the mop flops!",
+    "It happens to the best of us!",
+    "No biggie!",
+    "Chin up!",
+    "That's the way the cookie crumbles!",
+    "Keep calm and carry on!",
+    "Don't sweat the small stuff!",
+    "What can ya do!",
+    "Womp womp!"
+]
+
+while(1):
+    t = Thread(target=spam,args=(funny_messages[randint(0,len(funny_messages)-1)],catchphrase_messages[randint(0,len(catchphrase_messages)-1)]))
+    t.start()
